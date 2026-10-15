@@ -1,0 +1,149 @@
+[
+  {
+    "id": "ropa-001",
+    "nombre": "Camisa de lino manga larga",
+    "categoria": "ropa",
+    "subcategoria": "casual",
+    "genero": "hombre",
+    "precio": 89900,
+    "descripcion": "Camisa fresca de lino, ideal para el clima de la Sabana. Tallas S a XL.",
+    "imagen": "img/productos/camisa-lino.svg",
+    "destacado": true
+  },
+  {
+    "id": "ropa-002",
+    "nombre": "Vestido midi floral",
+    "categoria": "ropa",
+    "subcategoria": "casual",
+    "genero": "mujer",
+    "precio": 129900,
+    "descripcion": "Vestido de tela liviana con estampado floral y cinturón ajustable.",
+    "imagen": "img/productos/vestido-floral.svg",
+    "destacado": true
+  },
+  {
+    "id": "ropa-003",
+    "nombre": "Camiseta estampada infantil",
+    "categoria": "ropa",
+    "subcategoria": "casual",
+    "genero": "ninos",
+    "precio": 34900,
+    "descripcion": "Camiseta 100% algodón con estampado divertido. Tallas 2 a 12.",
+    "imagen": "img/productos/camiseta-infantil.svg",
+    "destacado": false
+  },
+  {
+    "id": "ropa-004",
+    "nombre": "Sudadera deportiva jogger",
+    "categoria": "ropa",
+    "subcategoria": "deportiva",
+    "genero": "hombre",
+    "precio": 79900,
+    "descripcion": "Jogger en tela perchada con bolsillos laterales y puño ajustado.",
+    "imagen": "img/productos/jogger.svg",
+    "destacado": false
+  },
+  {
+    "id": "ropa-005",
+    "nombre": "Leggings deportivos de compresión",
+    "categoria": "ropa",
+    "subcategoria": "deportiva",
+    "genero": "mujer",
+    "precio": 69900,
+    "descripcion": "Tiro alto, tela que no transparenta y secado rápido.",
+    "imagen": "img/productos/leggings.svg",
+    "destacado": true
+  },
+  {
+    "id": "ropa-006",
+    "nombre": "Conjunto deportivo para niños",
+    "categoria": "ropa",
+    "subcategoria": "deportiva",
+    "genero": "ninos",
+    "precio": 74900,
+    "descripcion": "Chaqueta y pantalón a juego, cómodos para el colegio y el parque.",
+    "imagen": "img/productos/conjunto-ninos.svg",
+    "destacado": false
+  },
+  {
+    "id": "ropa-007",
+    "nombre": "Gorra clásica bordada",
+    "categoria": "ropa",
+    "subcategoria": "accesorios",
+    "genero": "unisex",
+    "precio": 39900,
+    "descripcion": "Gorra ajustable con logo bordado. Talla única.",
+    "imagen": "img/productos/gorra.svg",
+    "destacado": true
+  },
+  {
+    "id": "belleza-001",
+    "nombre": "Base líquida de larga duración",
+    "categoria": "belleza",
+    "subcategoria": "maquillaje",
+    "precio": 54900,
+    "descripcion": "Cobertura media a alta, acabado natural. Disponible en 12 tonos.",
+    "imagen": "img/productos/base-liquida.svg",
+    "destacado": true
+  },
+  {
+    "id": "belleza-002",
+    "nombre": "Labial mate hidratante",
+    "categoria": "belleza",
+    "subcategoria": "maquillaje",
+    "precio": 29900,
+    "descripcion": "Color intenso que no reseca los labios. Varios tonos.",
+    "imagen": "img/productos/labial.svg",
+    "destacado": false
+  },
+  {
+    "id": "belleza-003",
+    "nombre": "Sérum facial con vitamina C",
+    "categoria": "belleza",
+    "subcategoria": "piel",
+    "precio": 64900,
+    "descripcion": "Ayuda a unificar el tono y dar luminosidad. Frasco de 30 ml.",
+    "imagen": "img/productos/serum.svg",
+    "destacado": true
+  },
+  {
+    "id": "belleza-004",
+    "nombre": "Protector solar FPS 50",
+    "categoria": "belleza",
+    "subcategoria": "piel",
+    "precio": 49900,
+    "descripcion": "Textura ligera, toque seco y sin efecto blanco. 50 ml.",
+    "imagen": "img/productos/protector-solar.svg",
+    "destacado": false
+  },
+  {
+    "id": "belleza-005",
+    "nombre": "Aceite capilar nutritivo",
+    "categoria": "belleza",
+    "subcategoria": "cabello",
+    "precio": 39900,
+    "descripcion": "Controla el frizz y aporta brillo sin dejar el cabello grasoso.",
+    "imagen": "img/productos/aceite-capilar.svg",
+    "destacado": true
+  },
+  {
+    "id": "belleza-006",
+    "nombre": "Eau de parfum floral",
+    "categoria": "belleza",
+    "subcategoria": "fragancias",
+    "precio": 119900,
+    "descripcion": "Notas de jazmín, pera y vainilla. Frasco de 100 ml.",
+    "imagen": "img/productos/perfume.svg",
+    "destacado": true
+  },
+  {
+    "id": "belleza-007",
+    "nombre": "Set de brochas de maquillaje",
+    "categoria": "belleza",
+    "subcategoria": "otros",
+    "precio": 45900,
+    "descripcion": "8 brochas de cerdas sintéticas con estuche de viaje.",
+    "imagen": "img/productos/brochas.svg",
+    "destacado": false
+  }
+]

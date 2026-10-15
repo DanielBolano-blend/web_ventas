@@ -1,0 +1,872 @@
+/* =========================================================
+   [NOMBRE DE LA TIENDA] — Hoja de estilos principal
+   Diseño mobile-first: los estilos base son para celular y
+   las media queries (min-width) amplían para pantallas grandes.
+   ========================================================= */
+
+/* ---------- 1. Paleta y tokens (cambia aquí los colores) ---------- */
+:root {
+  /* Colores de marca */
+  --color-primario: #3B2335;        /* Berenjena profundo: textos, header, footer */
+  --color-acento: #A63D57;          /* Frambuesa: botones y llamados a la acción */
+  --color-acento-hover: #8C2F47;
+  --color-secundario: #4A6B5A;      /* Salvia: etiquetas y detalles de ropa */
+  --color-nude: #F3E3DC;            /* Nude/rubor: fondos de secciones de belleza */
+  --color-fondo: #FBF7F4;           /* Crema: fondo general */
+  --color-superficie: #FFFFFF;      /* Tarjetas */
+  --color-texto: #3B2335;
+  --color-texto-suave: #5E5560;
+  --color-borde: #E7DAD3;
+  --color-whatsapp: #0E7A5A;        /* Verde oscuro (contraste AA con texto blanco) */
+  --color-whatsapp-hover: #0A5F46;
+
+  /* Tipografía */
+  --fuente-titulos: "Playfair Display", Georgia, "Times New Roman", serif;
+  --fuente-texto: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  /* Espaciado, bordes y sombras */
+  --radio: 14px;
+  --radio-pill: 999px;
+  --sombra: 0 4px 18px rgba(59, 35, 53, 0.08);
+  --sombra-hover: 0 10px 28px rgba(59, 35, 53, 0.14);
+  --ancho-max: 1180px;
+  --gutter: 16px;
+}
+
+/* ---------- 2. Base ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--fuente-texto);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-texto);
+  background: var(--color-fondo);
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+h1, h2, h3 {
+  font-family: var(--fuente-titulos);
+  line-height: 1.2;
+  margin: 0 0 0.5em;
+  color: var(--color-primario);
+}
+
+h1 { font-size: clamp(2rem, 7vw, 3.4rem); }
+h2 { font-size: clamp(1.6rem, 5vw, 2.3rem); }
+h3 { font-size: 1.15rem; }
+
+p { margin: 0 0 1em; }
+
+a {
+  color: var(--color-acento);
+}
+
+a:hover {
+  color: var(--color-acento-hover);
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-acento);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.contenedor {
+  width: 100%;
+  max-width: var(--ancho-max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.visualmente-oculto {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* Enlace "saltar al contenido" para teclado y lectores de pantalla */
+.saltar {
+  position: absolute;
+  left: 8px;
+  top: -60px;
+  z-index: 100;
+  padding: 10px 16px;
+  background: var(--color-primario);
+  color: #fff;
+  border-radius: var(--radio);
+  text-decoration: none;
+}
+
+.saltar:focus {
+  top: 8px;
+  color: #fff;
+}
+
+/* ---------- 3. Botones ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;            /* Área táctil cómoda en celular */
+  padding: 10px 22px;
+  border: 2px solid transparent;
+  border-radius: var(--radio-pill);
+  font: 600 0.95rem/1.2 var(--fuente-texto);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s, transform 0.2s, border-color 0.2s;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn-primario {
+  background: var(--color-acento);
+  color: #fff;
+}
+
+.btn-primario:hover {
+  background: var(--color-acento-hover);
+  color: #fff;
+}
+
+.btn-secundario {
+  background: transparent;
+  color: var(--color-primario);
+  border-color: var(--color-primario);
+}
+
+.btn-secundario:hover {
+  background: var(--color-primario);
+  color: #fff;
+}
+
+.btn-whatsapp {
+  background: var(--color-whatsapp);
+  color: #fff;
+  width: 100%;
+}
+
+.btn-whatsapp:hover {
+  background: var(--color-whatsapp-hover);
+  color: #fff;
+}
+
+.btn-whatsapp svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+/* ---------- 4. Header y navegación ---------- */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(251, 247, 244, 0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--color-borde);
+}
+
+.header .contenedor {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 64px;
+}
+
+.logo {
+  font-family: var(--fuente-titulos);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-primario);
+  text-decoration: none;
+}
+
+.logo:hover {
+  color: var(--color-acento);
+}
+
+.menu-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-radius: 10px;
+  cursor: pointer;
+  color: var(--color-primario);
+}
+
+.menu-toggle .barras,
+.menu-toggle .barras::before,
+.menu-toggle .barras::after {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+  transition: transform 0.25s, opacity 0.25s;
+  position: relative;
+}
+
+.menu-toggle .barras::before,
+.menu-toggle .barras::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+
+.menu-toggle .barras::before { top: -7px; }
+.menu-toggle .barras::after { top: 7px; }
+
+.menu-toggle[aria-expanded="true"] .barras { background: transparent; }
+.menu-toggle[aria-expanded="true"] .barras::before { transform: translateY(7px) rotate(45deg); }
+.menu-toggle[aria-expanded="true"] .barras::after { transform: translateY(-7px) rotate(-45deg); }
+
+.nav {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--color-fondo);
+  border-bottom: 1px solid var(--color-borde);
+  box-shadow: var(--sombra);
+  display: none;
+}
+
+.nav.abierto {
+  display: block;
+}
+
+.nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 8px var(--gutter) 16px;
+}
+
+.nav a {
+  display: block;
+  padding: 12px 4px;
+  color: var(--color-primario);
+  font-weight: 500;
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-borde);
+}
+
+.nav li:last-child a {
+  border-bottom: 0;
+}
+
+.nav a[aria-current="page"] {
+  color: var(--color-acento);
+  font-weight: 700;
+}
+
+/* ---------- 5. Hero ---------- */
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: 56px 0 64px;
+  background:
+    radial-gradient(circle at 85% 15%, rgba(166, 61, 87, 0.18), transparent 45%),
+    radial-gradient(circle at 10% 90%, rgba(74, 107, 90, 0.16), transparent 45%),
+    var(--color-nude);
+}
+
+.hero-contenido {
+  max-width: 620px;
+}
+
+.hero .etiqueta {
+  display: inline-block;
+  margin-bottom: 14px;
+  padding: 6px 14px;
+  background: var(--color-superficie);
+  border-radius: var(--radio-pill);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-secundario);
+}
+
+.hero p {
+  font-size: 1.1rem;
+  color: var(--color-texto-suave);
+}
+
+.hero-acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+/* ---------- 6. Secciones generales ---------- */
+.seccion {
+  padding: 56px 0;
+}
+
+.seccion-alterna {
+  background: var(--color-superficie);
+}
+
+.seccion-encabezado {
+  max-width: 640px;
+  margin-bottom: 28px;
+}
+
+.seccion-encabezado p {
+  color: var(--color-texto-suave);
+}
+
+.encabezado-pagina {
+  padding: 40px 0 28px;
+  background: var(--color-nude);
+}
+
+.encabezado-pagina p {
+  color: var(--color-texto-suave);
+  max-width: 640px;
+  margin: 0;
+}
+
+/* Valores / presentación */
+.valores {
+  display: grid;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.valor {
+  padding: 20px;
+  background: var(--color-fondo);
+  border-radius: var(--radio);
+}
+
+.valor h3 {
+  margin-bottom: 6px;
+}
+
+.valor p {
+  margin: 0;
+  color: var(--color-texto-suave);
+  font-size: 0.95rem;
+}
+
+/* ---------- 7. Tarjetas de categoría ---------- */
+.categorias {
+  display: grid;
+  gap: 20px;
+}
+
+.categoria-card {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  text-decoration: none;
+  color: #fff;
+  aspect-ratio: 4 / 3;
+  transition: box-shadow 0.25s, transform 0.25s;
+}
+
+.categoria-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s;
+}
+
+.categoria-card:hover {
+  box-shadow: var(--sombra-hover);
+  color: #fff;
+}
+
+.categoria-card:hover img {
+  transform: scale(1.04);
+}
+
+.categoria-card .texto {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 60px 20px 20px;
+  background: linear-gradient(to top, rgba(59, 35, 53, 0.92), rgba(59, 35, 53, 0));
+}
+
+.categoria-card h3 {
+  color: #fff;
+  font-size: 1.6rem;
+  margin-bottom: 4px;
+}
+
+.categoria-card p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+/* ---------- 8. Filtros ---------- */
+.filtros {
+  display: grid;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.grupo-filtro {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+
+.grupo-filtro legend {
+  padding: 0;
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--color-texto-suave);
+}
+
+.chips {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;              /* En celular los chips se deslizan */
+  padding-bottom: 4px;
+  scrollbar-width: thin;
+}
+
+.chip {
+  flex-shrink: 0;
+  min-height: 40px;
+  padding: 8px 18px;
+  background: var(--color-superficie);
+  border: 1.5px solid var(--color-borde);
+  border-radius: var(--radio-pill);
+  font: 500 0.9rem/1 var(--fuente-texto);
+  color: var(--color-primario);
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.chip:hover {
+  border-color: var(--color-primario);
+}
+
+.chip[aria-pressed="true"] {
+  background: var(--color-primario);
+  border-color: var(--color-primario);
+  color: #fff;
+}
+
+.resultado-conteo {
+  margin: 0 0 16px;
+  font-size: 0.9rem;
+  color: var(--color-texto-suave);
+}
+
+/* ---------- 9. Tarjetas de producto ---------- */
+.grid-productos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));   /* 2 columnas incluso en celular */
+  gap: 14px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.producto {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-superficie);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  overflow: hidden;
+  transition: box-shadow 0.25s, transform 0.25s;
+}
+
+.producto:hover {
+  box-shadow: var(--sombra-hover);
+  transform: translateY(-2px);
+}
+
+.producto-imagen {
+  aspect-ratio: 1 / 1;
+  background: var(--color-nude);
+}
+
+.producto-imagen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.producto-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 6px;
+  padding: 12px;
+}
+
+.producto-etiqueta {
+  align-self: flex-start;
+  padding: 3px 10px;
+  border-radius: var(--radio-pill);
+  background: var(--color-fondo);
+  color: var(--color-secundario);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.producto h3 {
+  font-family: var(--fuente-texto);
+  font-size: 0.98rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.producto-descripcion {
+  display: none;              /* Oculta en celular para tarjetas compactas */
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--color-texto-suave);
+}
+
+.producto-precio {
+  margin: 0 0 6px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-acento);
+}
+
+.producto .btn-whatsapp {
+  margin-top: auto;
+  padding: 10px 12px;
+  font-size: 0.85rem;
+}
+
+.mensaje-estado {
+  grid-column: 1 / -1;
+  padding: 28px 20px;
+  background: var(--color-superficie);
+  border: 1.5px dashed var(--color-borde);
+  border-radius: var(--radio);
+  text-align: center;
+  color: var(--color-texto-suave);
+}
+
+.mensaje-estado code {
+  background: var(--color-fondo);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.ver-mas {
+  margin-top: 28px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
+/* ---------- 10. Contacto ---------- */
+.contacto-grid {
+  display: grid;
+  gap: 20px;
+}
+
+.tarjeta {
+  padding: 24px;
+  background: var(--color-superficie);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+}
+
+.tarjeta-separada {
+  margin-top: 20px;
+}
+
+.tarjeta h2 {
+  font-size: 1.4rem;
+}
+
+.lista-contacto {
+  list-style: none;
+  margin: 0 0 20px;
+  padding: 0;
+}
+
+.lista-contacto li {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--color-borde);
+}
+
+.lista-contacto li:last-child {
+  border-bottom: 0;
+}
+
+.lista-contacto strong {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--color-texto-suave);
+  font-weight: 600;
+}
+
+.horario {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.horario th,
+.horario td {
+  padding: 10px 0;
+  text-align: left;
+  border-bottom: 1px solid var(--color-borde);
+}
+
+.horario td {
+  text-align: right;
+}
+
+.horario tr:last-child th,
+.horario tr:last-child td {
+  border-bottom: 0;
+}
+
+.mapa {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border: 0;
+  border-radius: var(--radio);
+}
+
+/* ---------- 11. Aviso legal ---------- */
+.texto-legal {
+  max-width: 760px;
+}
+
+.texto-legal h2 {
+  font-size: 1.35rem;
+  margin-top: 1.8em;
+}
+
+.marcador {
+  padding: 12px 16px;
+  background: var(--color-nude);
+  border-left: 4px solid var(--color-acento);
+  border-radius: 6px;
+  color: var(--color-texto);
+}
+
+/* ---------- 12. Footer ---------- */
+.footer {
+  padding: 40px 0 24px;
+  background: var(--color-primario);
+  color: var(--color-nude);
+}
+
+.footer-grid {
+  display: grid;
+  gap: 24px;
+}
+
+.footer h2 {
+  font-size: 1.1rem;
+  color: #fff;
+}
+
+.footer p {
+  margin: 0 0 6px;
+}
+
+.footer ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer li {
+  margin-bottom: 6px;
+}
+
+.footer a {
+  color: var(--color-nude);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.footer a:hover {
+  color: #fff;
+}
+
+.footer :focus-visible {
+  outline-color: #fff;
+}
+
+.footer-legal {
+  margin-top: 28px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(243, 227, 220, 0.25);
+  font-size: 0.85rem;
+}
+
+/* Botón flotante de WhatsApp */
+.whatsapp-flotante {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 40;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--color-whatsapp);
+  color: #fff;
+  box-shadow: var(--sombra-hover);
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.whatsapp-flotante:hover {
+  background: var(--color-whatsapp-hover);
+  color: #fff;
+  transform: scale(1.06);
+}
+
+.whatsapp-flotante svg {
+  width: 28px;
+  height: 28px;
+}
+
+/* ---------- 13. Pantallas medianas (tablet) ---------- */
+@media (min-width: 640px) {
+  :root {
+    --gutter: 24px;
+  }
+
+  .valores {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .categorias {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-productos {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .producto-info {
+    padding: 16px;
+  }
+
+  .producto-descripcion {
+    display: block;
+  }
+
+  .producto .btn-whatsapp {
+    font-size: 0.9rem;
+  }
+
+  .filtros {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
+
+  .chips {
+    flex-wrap: wrap;
+    overflow: visible;
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ---------- 14. Pantallas grandes (escritorio) ---------- */
+@media (min-width: 960px) {
+  .menu-toggle {
+    display: none;
+  }
+
+  .nav,
+  .nav.abierto {
+    position: static;
+    display: block;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+  }
+
+  .nav ul {
+    display: flex;
+    gap: 28px;
+    padding: 0;
+  }
+
+  .nav a {
+    padding: 8px 0;
+    border-bottom: 2px solid transparent;
+  }
+
+  .nav li:last-child a {
+    border-bottom: 2px solid transparent;
+  }
+
+  .nav a:hover,
+  .nav a[aria-current="page"] {
+    border-bottom-color: var(--color-acento);
+  }
+
+  .hero {
+    padding: 96px 0 104px;
+  }
+
+  .seccion {
+    padding: 80px 0;
+  }
+
+  .grid-productos {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .contacto-grid {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+}
+
+/* Respeta a quienes prefieren menos animaciones */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+    scroll-behavior: auto !important;
+  }
+}
