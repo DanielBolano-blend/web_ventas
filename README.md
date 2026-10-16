@@ -1,6 +1,6 @@
-# [NOMBRE DE LA TIENDA] — Sitio web
+# YB Clothes — Sitio web
 
-Sitio estático (HTML + CSS + JavaScript puro) de una tienda de ropa y belleza en Chía, Cundinamarca.
+Sitio estático (HTML + CSS + JavaScript puro) de YB Clothes, tienda de ropa y belleza.
 
 ## Ver localmente
 Los navegadores no dejan leer `data/productos.json` si abres los archivos con doble clic (`file://`).
@@ -12,10 +12,9 @@ python -m http.server 8000
 y abre http://localhost:8000 (o usa la extensión *Live Server* de VS Code).
 
 ## Personalizar
-- **Nombre de la tienda:** busca y reemplaza `[NOMBRE DE LA TIENDA]` en todos los archivos.
 - **WhatsApp:** cambia `CONFIG.whatsapp` en `js/main.js` (ej. `"573001234567"`) y el texto `[NÚMERO WHATSAPP]` en los HTML.
 - **Colores:** variables al inicio de `css/styles.css` (`:root`).
-- **Mapa:** reemplaza el `src` del `iframe` en `contacto.html`.
+- **Cartel informativo:** `cartel.html` muestra el aviso de reorganización abreviada; el PDF oficial está en `docs/`.
 
 ## Productos
 Edita `data/productos.json`. Campos: `id`, `nombre`, `categoria` (`ropa` | `belleza`),

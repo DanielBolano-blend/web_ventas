@@ -1,5 +1,5 @@
 /* =========================================================
-   [NOMBRE DE LA TIENDA] — JavaScript principal (sin frameworks)
+   YB Clothes — JavaScript principal (sin frameworks)
    - Menú hamburguesa
    - Carga de productos desde data/productos.json
    - Filtros de catálogo
